@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <title>document.write altenating table rows</title>
+</head>
+<style>
+    h1 {
+        width: 100%;
+        text-align: center;
+    }
+    
+    div {
+        width: 100%;
+        margin-right: 5%;
+        margin-left: 5%;
+        width: 100%;
+        height: 100%;
+    }
+    
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 80%;
+        margin: 0 auto;
+        border: 1px solid black;
+    }
+    
+    td,
+    th {
+        border: 1px solid #dddddd;
+        text-align: center;
+        padding: 8px;
+    }
+    
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+    /* Dropdown button on hover & focus */
+    
+    .dropbtn:hover,
+    .dropbtn:focus {
+        background-color: #3e8e41;
+    }
+    /* The container <div> - needed to position the dropdown content */
+    
+    .dropdown {
+        text-align: center;
+    }
+    
+    .dropdown {
+        position: right;
+        display: inline-block;
+    }
+    
+    .classmenu {
+        text-align: center;
+    }
+    /* Dropdown Content (Hidden by Default) */
+    
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 100%;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+    }
+    /* Links inside the dropdown */
+    
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+    /* Change color of dropdown links on hover */
+    
+    .dropdown-content a:hover {
+        background-color: #f1f1f1
+    }
+    
+    .show {
+        display: block;
+    }
+    
+    a {
+        color: #ee3e80;
+    }
+    
+    a:hover {
+        color: #000000;
+        background-color: #ee3e80;
+        text-decoration: underline;
+    }
+    
+    #draggable {
+        width: 150px;
+        height: 150px;
+        padding: 0.5em;
+    }
+    
+    #val {
+        width: 100%;
+        text-align: center;
+    }
+    
+    #myDiv {
+        height: 200px;
+        width: 400px;
+        margin: 0 auto;
+        display: none;
+        text-align: center;
+        padding: 5px;
+        background-color: #e5eecc;
+        border: solid 1px #c3c3c3;
+    }
+    
+    #header1 {
+        padding: 5px;
+        text-align: center;
+        background-color: lightgray;
+        margin: auto;
+        width: 670px;
+        color: darkred;
+    }
+</style>
+
+
+<script>
+    $(function() {
+        $("table tr:nth-child(even)").addClass("striped");
+    });
+
+    function myFunction() {
+        document.getElementById("myDropdown").classList.toggle("show");
+    }
+
+    // Close the dropdown menu if the user clicks outside of it
+    window.onclick = function(event) {
+        if (!event.target.matches('.dropbtn')) {
+
+            var dropdowns = document
+                .getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
+            }
+        }
+    }
+</script>
+
+<body>
+    <div class="dropdown">
+        <button onclick="myFunction()" class="dropbtn">Homework Links</button>
+        <nav id="myDropdown" class="dropdown-content">
+            <del> Homework 1</del>
+            <a href="hw2.html">Homework 2</a> <a href="homework3/part1.hmtl">Homework 3</a> <a href="hw4.html">Homework 4</a> <a href="hw5.html">Homework 5</a> <a href="hw6.html">Homework 6</a> <a href="hw7.html">Homework 7</a> <a href="hw8.html">Homework 8</a>
+        </nav>
+    </div>
+    <div>
+
+        <div class="classmenu">
+            <nav id="mnu">
+                <a href="part1.html">Part1</a> | <a href="part2.html">Part2</a> |
+                <a href="part3.html">Part3</a> | <a href="part4.html">Part4</a> | <a href="part5.html">Part5</a> | <a href="part6.html">Part6</a> |
+                <a href="extra.html">Extra Credit</a>
+            </nav>
+        </div>
+    </div>
+
+    <div align="center">
+
+        <h3>Compound Interest Calculator </h3>
+
+        <script type="text/javascript">
+            var A = 0.00;
+            var P = 1000;
+            var r = 0;
+            var n = 0;
+            var r1;
+
+            for (r = 5; r <= 10; r++) {
+                document.write(
+                    "<table border = '1'><tr> " +
+                    "<th>Year</th><th>Amount on deposit</th><th>Interest Rate</th></tr>");
+                for (n = 1; n <= 10; n++) {
+                    r1 = (r / 100);
+
+                    A = (P * (Math.pow((1 + r1), n))).toFixed(2);
+
+                    document.write(
+                        "<tr align=\"right\"><td>" + n + "</td>" + "<td>" + A + "<td>" + r / 100 +
+                        "</td></tr>");
+                }
+            }
+
+            document.write("</table><br /><br />");
+            document.write("</table>")
+            document.close();
+        </script>
+        <p>
+            <a href="http://validator.w3.org/check?uri=referer"><img src="http://www.w3.org/Icons/valid-xhtml10" border="0" alt="Valid XHTML 1.0 Transitional" height="31" width="88" /></a>
+        </p>
+
+    </div>
+
+
+</body>
+
+</html>

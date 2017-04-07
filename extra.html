@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <meta charset="UTF-8">
+    <title>CNIT 133 Homework 4 - Part 5</title>
+
+    <link rel="stylesheet" type="text/css" href="part5.css">
+
+    <script>
+	
+ function setValues1() {
+
+
+     var uservalue;
+     var selectedList;
+     var userList;
+
+     var head;
+
+     var start = '*-';
+	 var middle = '<br>*_';
+     var end;
+
+
+     uservalue = document.getElementById("usrValue").value;
+     uservalue = parseInt(uservalue);
+ 		userList = parseInt(uservalue);
+     if (isNaN(uservalue) || uservalue == "") {
+         document.getElementById("messages").innerHTML = 'Please enter a valid input';
+         return;
+     } else if (uservalue < 2  || uservalue > 10) {
+         document.getElementById("messages").innerHTML = 'Please enter a number between 2 and 10';
+         return;
+     }
+
+
+     var first;
+
+    
+	document.getElementById("messages").innerHTML = "";
+ 
+ 
+
+		for (i = 0; i < userList; i++) {			
+			document.getElementById("messages").innerHTML += " *  ";
+		}	
+		
+		for (i = 0; i < userList - 2; i++) {
+			document.getElementById("messages").innerHTML += "<br>";
+            for (j = 0; j < userList; j++) {
+				if (j == 0 || j == (userList - 1)) {
+					document.getElementById("messages").innerHTML += "*  ";
+				} else {
+					document.getElementById("messages").innerHTML += "&nbsp&nbsp&nbsp";
+				}
+			}			
+		}
+		
+		document.getElementById("messages").innerHTML += "<br>";
+
+		for (i = 0; i < userList; i++) {			
+		document.getElementById("messages").innerHTML += "* ";
+		}
+		
+	
+ 
+		
+	}
+
+
+
+
+
+   //  document.getElementById("messages").innerHTML += start + "<li>List Item 1</li><li>List Item 2</li><li>List Item 3</li>" + end;
+
+ 
+	
+	</script>
+
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+
+</head>
+
+<body id="hw5">
+    <nav>
+        <a href="part1.html">Part1</a> | <a href="part2.html">Part2</a> |
+        <a href="part3.html">Part3</a> | <a href="part4.html">Part4</a> | <a href="part5.html">Part5</a> | <a href="part6.html">Part6</a> |
+        <a href="extra.html">Extra Credit</a>
+    </nav>
+    <br><br><br>
+    <div class="dropdown">
+        <button onclick="myFunction()" class="dropbtn">Homework Links</button>
+        <nav id="myDropdown" class="dropdown-content">
+            <del> Homework 1</del>
+            <a href="hw2.html">Homework 2</a> <a href="homework3/part1.hmtl">Homework 3</a> <a href="hw4.html">Homework 4</a> <a href="hw5.html">Homework 5</a> <a href="hw6.html">Homework 6</a> <a href="hw7.html">Homework 7</a> <a href="hw8.html">Homework 8</a>
+        </nav>
+    </div>
+    <br><br><br>
+    <div id="maindiv">
+
+        <form id="myform" name="hw4pt5form">
+            <table>
+    <tr>
+                    <h3>Create Asterisks Square</h3>
+                </tr>
+                <tr>
+                    <td>Please input a number between 2 and 10</td>
+                </tr>
+ 
+
+                <tr>
+                    <td><input id="usrValue" type="text"></td>
+                </tr>
+
+                <tr>
+                    <td><input type="button" onclick="setValues1()" value="Create List"></td>
+                </tr>
+
+
+
+            </table>
+        </form>
+
+
+        <br><br>
+
+
+    </div>
+    <div id="pain">
+    <div id="messages"></div>
+    </div>
+
+    <p id="updated">
+        <script>
+            var lastUpdated = document.lastModified;
+            document.write("This page was last updated on " + lastUpdated);
+        </script>
+
+    </p>
+
+    <p id="val">
+
+        <a href="https://validator.w3.org/check?uri=referer">
+            <img style="border:0; width:42px; height:30px" src="HTML5_Logo_512.png" alt="HTML5"></a>
+
+        <a href="https://jigsaw.w3.org/css-validator/check/referer">
+            <img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss-blue" alt="Valid CSS!" />
+        </a>
+    </p>
+
+    <div id='dialog' title='Asterisks Square'>
+ 
+    </div>
+</body>
+
+</html>

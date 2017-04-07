@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<!-- saved from url=(0025)hm2.html -->
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+
+</head>
+
+<body>
+
+    <title>CNIT 133 Homework 2</title>
+
+    <nav>
+        <a href="part1.html">Part1</a> | <a href="part2.html">Part2</a> |
+        <a href="part3.html">Part3</a> | <a href="part4.html">Part4</a> | <a href="part5.html">Part5</a> | <a href="part6.html">Part6</a> |
+        <a href="extra.html">Extra Credit</a>
+    </nav>
+
+    <style>
+        #gross_form {
+            width: 90%;
+            background-color: #bdd2ff;
+            border: 1px solid white;
+            margin: 50px auto 0;
+            padding: 1em;
+            text-align: center;
+        }
+        
+        h1 {
+            width: 100%;
+            text-align: center;
+        }
+        
+        div {
+            width: 100%;
+            margin-right: 5%;
+            margin-left: 5%;
+            width: 100%;
+            height: 100%;
+        }
+        
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 80%;
+            margin: 0 auto;
+            border: 1px solid black;
+        }
+        
+        td,
+        th {
+            border: 1px solid #dddddd;
+            text-align: center;
+            padding: 8px;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+        /* Dropdown button on hover & focus */
+        
+        .dropbtn:hover,
+        .dropbtn:focus {
+            background-color: #3e8e41;
+        }
+        /* The container <div> - needed to position the dropdown content */
+        
+        .dropdown {
+            text-align: center;
+        }
+        
+        .dropdown {
+            position: right;
+            display: inline-block;
+        }
+        /* Dropdown Content (Hidden by Default) */
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 100%;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+        /* Links inside the dropdown */
+        
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        /* Change color of dropdown links on hover */
+        
+        .dropdown-content a:hover {
+            background-color: #f1f1f1
+        }
+        
+        .show {
+            display: block;
+        }
+        
+        a {
+            color: #ee3e80;
+        }
+        
+        a:hover {
+            color: #000000;
+            background-color: #ee3e80;
+            text-decoration: underline;
+        }
+        
+        #val {
+            width: 100%;
+            text-align: center;
+        }
+                #msg {
+              width: 90%;
+            text-align: center;
+               background-color: #ee3e80;
+        }
+        
+        #myDiv {
+            margin: 0 auto;
+            display: none;
+            text-align: center;
+        }
+        
+        #btns {
+            margin: 0 auto;
+            display: none;
+            text-align: center;
+        }
+        
+        #header1 {
+            padding: 5px;
+            text-align: center;
+            background-color: lightgray;
+            margin: auto;
+            width: 670px;
+            color: darkred;
+        }
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+    <script>
+        var dateModified = document.lastModified;
+        mydate = dateModified.slice(0, 16);
+
+        function myFunction() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+
+        // Close the dropdown menu if the user clicks outside of it
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropbtn')) {
+
+                var dropdowns = document
+                    .getElementsByClassName("dropdown-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+        window.onload = function() {
+            document.getElementById('gross_pay').addEventListener('click',
+                clickHandler, false)
+
+        };
+
+        function clickHandler() {
+
+            setValues();
+
+        }
+
+        $(document).ready(function() {
+
+            for (var i = 1; i <= 4; i++) {
+
+                $('#myNumber' + i).focus(function() {
+                    $(this).css('background-color', 'red');
+                }); // hover in field, change background color
+
+                $('#myNumber' + i).focusout(function() {
+
+                    $(this).css('background-color', 'lightgray');
+
+                }); // hover in field, change background color
+
+            }
+
+            $("#header1").click(function() {
+                $("#myDiv").slideToggle("slow");
+            }); //displays FX translations on click
+
+        });
+
+
+        function checkValues(element_id) {
+
+            if (isNaN(element_id)) {
+                return false;
+            } else {
+                return true;
+            }
+
+        }
+
+
+        function setValues() {
+      
+            var hour1 = parseInt(document.getElementById("hours1").value);
+            var rate1 = parseInt(document.getElementById("rate1").value);
+
+            var arHours = [];
+            var arRates = [];
+            var arGross = [];
+
+            for (var i = 1; i < 7; ++i) {
+         
+                arHours[i] = parseInt(document.getElementById("hours" + i).value);
+                arRates[i] = parseInt(document.getElementById("rate" + i).value);
+
+                       if (isNaN(arHours[i]) || arHours[i] == "" || isNaN(arRates[i]) || arRates[i] == "") {
+                         document.getElementById("msg").innerHTML =   "<br><br>Please enter only numbers<br><br>";         
+                       return;
+                     
+                }
+                if (arHours[i] < 40) {
+                    arGross[i] = (arRates[i] * arHours[i]).toFixed(2);
+                } else {
+                    arGross[i] = ((arRates[i] * 40) + ((arHours[i] - 40) * (arRates[i] + (arRates[i] / 2)))).toFixed(2);
+                }
+                document.getElementById("f_hours" + i).value = arHours[i];
+                document.getElementById("gross" + i).value = arGross[i];
+                document.getElementById("f_rate" + i).value = arRates[i].toFixed(2);
+            }
+
+
+            var hour2 = parseInt(document.getElementById("hours2").value);
+            var rate2 = parseInt(document.getElementById("rate2").value);
+
+  
+
+            var itemA = [239.99, 129.75, 99.95, 350.89];
+
+            var Total_Amount_Sold = 0;
+
+            
+
+            for (i = 0; i < ar.length; i++) {
+                var price = 'item' + i + 'Price';
+                var t = 'total_item' + i;
+                var z = ar[i] * itemA[i];
+                document.getElementById(t).value = z.toFixed(2);
+                Total_Amount_Sold = Total_Amount_Sold + z;
+
+            }
+            document.getElementById("msg").innerHTML =   "<br>";   
+            var com = (.09 * Total_Amount_Sold) + 200;
+            document.getElementById("final_total").value = Total_Amount_Sold.toFixed(2);
+            document.getElementById("salary").value = com.toFixed(2);
+             
+
+        }
+    </script>
+
+
+
+    <div class="dropdown">
+        <button onclick="myFunction()" class="dropbtn">Homework Links</button>
+        <nav id="myDropdown" class="dropdown-content">
+            <del> Homework 1</del>
+            <a href="hw2.html">Homework 2</a> <a href="homework3/part1.hmtl">Homework 3</a> <a href="hw4.html">Homework 4</a> <a href="hw5.html">Homework 5</a> <a href="hw6.html">Homework 6</a> <a href="hw7.html">Homework 7</a> <a href="hw8.html">Homework 8</a>
+        </nav>
+        <h3>Homework 3 - Part 2 Gross Pay Calculator</h3>
+        <p>Input the number of hours worked and the hourly rate:</p>
+    </div>
+
+    <div id="gross_form">
+        <form id="gross_pay">
+
+            <table>
+                <tr>
+                    <th>Employee</th>
+                    <th>Hours Worked</th>
+                    <th>Hourly Rate</th>
+                </tr>
+                <tr>
+                    <td>Employee 1</td>
+                    <td><input type="text" id="hours1" value="22"> </td>
+                    <td><input type="text" id="rate1" value="10.00"> </td>
+                </tr>
+
+
+                <tr>
+                    <td>Employee 2</td>
+                    <td><input type="text" id="hours2" value="22"></td>
+                    <td><input type="text" id="rate2" value="10.00"> </td>
+                </tr>
+                <tr>
+                    <td>Employee 3</td>
+                    <td><input type="text" id="hours3" value="22"></td>
+                    <td><input type="text" id="rate3" value="10.00"></td>
+                </tr>
+                <tr>
+                    <td>Employee 4</td>
+                    <td><input type="text" id="hours4" value="54"></td>
+                    <td><input type="text" id="rate4" value="10.00"></td>
+                </tr>
+                <tr>
+                    <td>Employee 5</td>
+                    <td><input type="text" id="hours5" value="34"></td>
+                    <td><input type="text" id="rate5" value="10.00"></td>
+                </tr>
+                <tr>
+                    <td>Employee 6</td>
+                    <td><input type="text" id="hours6" value="41"> </td>
+                    <td><input type="text" id="rate6" value="10.00"> </td>
+                </tr>
+
+                <div id='btns' style="text-align:center">
+                    <table>
+                        <input type="button" value="Submit">
+                        <input type="reset" value="Reset"> <br> <br>
+                    </table>
+                </div>
+                <div id='msg' style="text-align:center">
+                 
+                </div>
+
+                <table>
+
+                    <tr>
+                        <th>Employee</th>
+                        <th>Hours worked</th>
+                        <th>Hourly Rate</th>
+                        <th>Gross Pay</th>
+                    </tr>
+
+                    <tr>
+                        <td>1</td>
+                        <td><input type="text" id="f_hours1" disabled></td>
+                        <td><input type="text" id="f_rate1" disabled></td>
+                        <td><input type="text" id="gross1" disabled></td>
+                        <tr>
+                            <td>2</td>
+                            <td><input type="text" id="f_hours2" disabled></td>
+                            <td><input type="text" id="f_rate2" disabled></td>
+                            <td><input type="text" id="gross2" disabled></td>
+                            <tr>
+                                <td>3</td>
+                                <td><input type="text" id="f_hours3" disabled></td>
+                                <td><input type="text" id="f_rate3" disabled></td>
+                                <td><input type="text" id="gross3" disabled></td>
+                                <tr>
+                                    <td>4</td>
+                                    <td><input type="text" id="f_hours4" disabled></td>
+                                    <td><input type="text" id="f_rate4" disabled></td>
+                                    <td><input type="text" id="gross4" disabled></td>
+                                    <tr>
+                                        <td>5</td>
+                                        <td><input type="text" id="f_hours5" disabled></td>
+                                        <td><input type="text" id="f_rate5" disabled></td>
+                                        <td><input type="text" id="gross5" disabled></td>
+                                        <tr>
+                                            <td>6</td>
+                                            <td><input type="text" id="f_hours6" disabled></td>
+                                            <td><input type="text" id="f_rate6" disabled></td>
+                                            <td><input type="text" id="gross6" disabled></td>
+                </table>
+        </form>
+    </div>
+
+</body>
+
+</html>

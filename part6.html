@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="UTF-8">
+    <!-- Set the page to the width of the device and set the zoon level -->
+    <meta name="viewport" content="width = device-width, initial-scale = 1">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
+
+    <title>CNIT 133 Homework 4 - Part 5</title>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <script type="text/javascript" src="part6.js"></script>
+    <link rel="stylesheet" type="text/css" href="part6.css">
+    <script src='snowfall.jquery.js'></script>
+</head>
+
+<body>
+    <!-- CONTAINERS -->
+    <!-- container puts padding around itself while container-fluid fills the whole screen. Bootstap grids require a container. -->
+    <div class="container">
+
+        <!-- page-header adds space aroundtext and enlarges it. It also adds an underline at the end -->
+        <div class="page-header">
+            <div class="dropdown">
+
+                <button onclick="myFunction()" class="dropbtn">Homework Links</button>
+                <nav id="myDropdown" class="dropdown-content">
+                    <del> Homework 1</del>
+                    <a href="hw2.html">Homework 2</a> <a href="../homework3/part1.html">Homework 3</a> <a href="hw4.html">Homework 4</a> <a href="hw5.html">Homework 5</a> <a href="hw6.html">Homework 6</a> <a href="hw7.html">Homework 7</a> <a href="hw8.html">Homework 8</a>
+                </nav>
+                <input type="button" id="clear" value="Stop to the Snow" />
+                <input type="button" id="shadows" value="Shadows" />
+                <input type="button" id="round" value="Rounded" />
+                <input type="button" id="roundshadows" value="Rounded Shadows" />
+
+
+                <div class="test-container">
+
+                    <script type='text/javascript'>
+                        $(document).ready(function() {
+                            $("#clear").click(function() {
+                                $(document).snowfall('clear');
+                            });
+                        });
+
+                        document.getElementById("shadows").addEventListener("click", function() {
+                            document.body.className = "lightBg";
+                            snowFall.snow(document.body, "clear");
+                            snowFall.snow(document.body, {
+                                shadow: true,
+                                flakeCount: 200
+                            });
+                        });
+
+                        document.getElementById("round").addEventListener("click", function() {
+                            document.body.className = "darkBg";
+                            snowFall.snow(document.body, "clear");
+                            snowFall.snow(document.body, {
+                                round: true,
+                                minSize: 5,
+                                maxSize: 8
+                            });
+                        });
+
+                        document.getElementById("roundshadows").addEventListener("click", function() {
+                            document.body.className = "lightBg";
+                            snowFall.snow(document.body, "clear");
+                            snowFall.snow(document.body, {
+                                round: true,
+                                shadow: true,
+                                minSize: 5,
+                                maxSize: 8
+                            });
+                        });
+                    </script>
+
+
+
+
+                    <h3>Homework 4 Part 6</h3>
+                </div>
+
+                <!-- jumbotron enlarges fonts and puts everything in a gray box with rounded corners. If jumbotron is outside a container it fills the total width. You can change the styles by placing the changes after the Bootstrap CDN link -->
+                <div class="jumbotron">
+                    <table>
+                        <nav>
+                            <a href="part1.html">Part1</a> | <a href="part2.html">Part2</a> |
+                            <a href="part3.html">Part3</a> | <a href="part4.html">Part4</a> | <a href="part5.html">Part5</a> | <a href="part6.html">Part6</a> |
+                            <a href="extra.html">Extra Credit</a>
+                        </nav>
+                    </table>
+                </div>
+
+                <!-- jumbotron enlarges fonts and puts everything in a gray box with rounded corners. If jumbotron is outside a container it fills the total width. You can change the styles by placing the changes after the Bootstrap CDN link -->
+                <div class="jumbotron">
+
+
+                    <div id="words"></div>
+
+                    <div>
+                        <script>
+                            daysOfChris();
+                        </script>
+
+                        </table>
+
+                    </div>
+
+                    <p id="updated">
+                        <script>
+                            var lastUpdated = document.lastModified;
+                            document.write("This page was last updated on " + lastUpdated);
+                        </script>
+
+
+
+</body>
+
+
+</html>

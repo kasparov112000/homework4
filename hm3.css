@@ -1,0 +1,122 @@
+
+.div {
+	width: 445px;
+	margin: 10px auto;
+	background-color: #4CAF50;
+}
+
+.dropbtn {
+	background-color: #4CAF50;
+	color: white;
+	padding: 16px;
+	font-size: 16px;
+	border: none;
+	cursor: pointer;
+}
+
+/* Dropdown button on hover & focus */
+.dropbtn:hover, .dropbtn:focus {
+	background-color: #3e8e41;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+	position: relative;
+	display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+	display: none;
+	position: absolute;
+	background-color: #f9f9f9;
+	min-width: 160px;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+	color: black;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+	background-color: #f1f1f1
+}
+
+.show {
+	display: block;
+}
+
+a {
+	color: #ee3e80;
+}
+
+a:hover {
+	color: #000000;
+	background-color: #ee3e80;
+	text-decoration: underline;
+}
+
+body {
+	margin: 0px auto;
+	padding: 0px;
+	/* Need to set body margin and padding to get consistency between browsers. */
+	font-family: verdana;
+	width: 1000px;
+	height: 600px;
+	background-color: DarkCyan;
+	text-align: center;
+}
+
+.body {
+	width: 750px;
+	margin: 0px auto; /* Right and left margin widths set to "auto" */
+	text-align: left; /* Counteract to IE/Win Hack */
+	padding: 15px;
+	border: 1px dotted #333;
+	background-color: #eee;
+	text-align: left;
+	/* IE hack */
+}
+
+nav {
+	width: 445px;
+	margin: 0px auto;
+	background-color: #eee;
+}
+
+a {
+	text-decoration: #4CAF50;
+}
+
+td.pipe {
+	font-size: 10px;
+	font-weight: bold;
+}
+
+td.nav {
+	font-size: 14px;
+	font-weight: bold;
+}
+
+ul {
+	text-align: left;
+}
+
+h3 {
+	text-align: left;
+}
+
+div {
+	margin: 0px auto;
+}
+
+footer {
+	text-align: center;
+}
+ 
